@@ -17,7 +17,7 @@ while true
 do
   for tuname in blank `cat extra-users`; do
     line=`$mysort -R tweets.txt | head -n 1`
-    randn=`seq 1 10000|sort -R |head -n 1`
+    randn=`seq 1 10000|$mysort -R |head -n 1`
     echo "x${tuname}x"
     if [ "$tuname" = "blank" -o "$tuname" = "blank " ]; then
       tunamearg=""
