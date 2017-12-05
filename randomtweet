@@ -26,8 +26,10 @@ do
     fi
     set -x
     oysttyer $tunamearg -status="$line #test$randn" &
+    sleep 10
     set +x
   done
-  echo waiting till next post...
-  sleep 60
+  nsec=`seq 60 360|$mysort -R |head -n 1`
+  echo waiting $nsec seconds till next post...
+  sleep $nsec
 done
