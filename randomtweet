@@ -1,15 +1,33 @@
 #!/bin/bash
+#
+#
+# This will enter an infinite loop and tweet every x seconds
+# a random line from tweets.txt
+#
+# If you want multiple accounts, put the extra users in the file extra-users,
+# separated by space.
 
+
+mysort=sort
 if hash gsort 2>/dev/null; then
   mysort=gsort
 fi
 
 while true
 do
-  line=`$mysort -R tweets.txt | head -n 1`
-  randn=`seq 1 10000|sort -R |head -n 1`
-  echo oysttyer -status="$line"
-  oysttyer -status="$line #test$randn"
+  for tuname in blank `cat extra-users`; do
+    line=`$mysort -R tweets.txt | head -n 1`
+    randn=`seq 1 10000|sort -R |head -n 1`
+    echo "x${tuname}x"
+    if [ "$tuname" = "blank" -o "$tuname" = "blank " ]; then
+      tunamearg=""
+    else
+      tunamearg="-keyf=$tuname"
+    fi
+    set -x
+    oysttyer $tunamearg -status="$line #test$randn" &
+    set +x
+  done
   echo waiting till next post...
-  sleep 30
+  sleep 60
 done
