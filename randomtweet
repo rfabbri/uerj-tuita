@@ -25,8 +25,8 @@ do
       tunamearg="-keyf=$tuname"
     fi
     set -x
-    oysttyer $tunamearg -status="$line #test$randn" &
-    sleep 10
+    oysttyer $tunamearg -status="$line #IPRJ$randn" &
+#    sleep 10
     set +x
   done
   nsec=`seq 60 360|$mysort -R |head -n 1`
