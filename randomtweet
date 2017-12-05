@@ -1,0 +1,10 @@
+#!/bin/sh
+
+while true
+do
+  line=`sort -R tweets | head -n 1`
+  randn=`seq 1 10000|sort -R |head -n 1`
+  echo oysttyer -status="$line"
+  oysttyer -status="$line #test$randn"
+  sleep 30
+done
