@@ -1,10 +1,15 @@
-#!/bin/sh
+#!/bin/bash
+
+if hash gsort 2>/dev/null; then
+  mysort=gsort
+fi
 
 while true
 do
-  line=`sort -R tweets | head -n 1`
+  line=`$mysort -R tweets.txt | head -n 1`
   randn=`seq 1 10000|sort -R |head -n 1`
   echo oysttyer -status="$line"
   oysttyer -status="$line #test$randn"
-  sleep 60
+  echo waiting till next post...
+  sleep 30
 done
