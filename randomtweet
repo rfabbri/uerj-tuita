@@ -24,6 +24,10 @@ do
     else
       tunamearg="-keyf=$tuname"
     fi
+
+    # randomize tag order
+    msg=`echo $msg | randomize-tags`
+    
     set -x
     msg="$line #IPRJ$randn"
     extra_tag=`$mysort -R extra-tags | head -n 1`
@@ -33,11 +37,11 @@ do
     if [ "$msgsize" -lt 140 ]; then
       msg=$msg_extra_tags
     fi
-    oysttyer $tunamearg -status="$msg" &
-    sleep 10
+    echo oysttyer $tunamearg -status="$msg" &
+#    sleep 10
     set +x
   done
-  nsec=`seq 60 360|$mysort -R |head -n 1`
-  echo waiting $nsec seconds till next post...
-  sleep $nsec
+#  nsec=`seq 60 360|$mysort -R |head -n 1`
+#  echo waiting $nsec seconds till next post...
+#  sleep $nsec
 done
