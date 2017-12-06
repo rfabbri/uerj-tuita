@@ -18,7 +18,7 @@ for tuname in blank `cat extra-users`; do
     tunamearg="-keyf=$tuname"
   fi
   
-  grep -E -o '@[A-Za-z0-9_-]+' uerj-related-users | sed 's/@/\/follow /g' | oysttyer $tunamearg
+  grep -E -o '@[A-Za-z0-9_-]+' /tmp/bla | sed 's/@/\/follow /g' | oysttyer $tunamearg
 done
 
 
