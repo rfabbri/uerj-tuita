@@ -38,7 +38,7 @@ do
     if [ "$msgsize" -lt 140 ]; then
       msg=$msg_extra_tags
     fi
-    echo oysttyer $tunamearg -status="$msg" &
+    oysttyer $tunamearg -status="$msg" &
     sleep 10
     set +x
   done
