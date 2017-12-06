@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Basic logic:
+# for user2follow in uerj-related-users
+#   for follower in extra-users or default user
+#        make follower follow user2follow
+
+
+
+# get all usernames, one per line, without @
+# prepend the tags with /follow
+# pass to oysttyer
+
+for tuname in blank `cat extra-users`; do
+  if [ "$tuname" = "blank" -o "$tuname" = "blank " ]; then
+    tunamearg=""
+  else
+    tunamearg="-keyf=$tuname"
+  fi
+  
+  grep -E -o '@[A-Za-z0-9_-]+' uerj-related-users | sed 's/@/\/follow /g' | oysttyer $tunamearg
+done
+
+
+# Scratch:
+#
+# echo '/follow labmacambira' | oysttyer -keyf=uerj1999
