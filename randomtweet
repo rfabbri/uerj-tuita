@@ -41,9 +41,10 @@ do
     set -x
     oysttyer $tunamearg -status="$msg" &
     set +x
-    sleep 10
+    sleep 60
   done
-  nsec=`seq 60 360|$mysort -R |head -n 1`
+#  nsec=`seq 60 360|$mysort -R |head -n 1`
+  nsec=`seq 300 1000|$mysort -R |head -n 1`
   echo waiting $nsec seconds till next post...
   sleep $nsec
 done
