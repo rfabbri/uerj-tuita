@@ -38,9 +38,10 @@ do
     if [ "$msgsize" -lt 140 ]; then
       msg=$msg_extra_tags
     fi
+    set -x
     oysttyer $tunamearg -status="$msg" &
-    sleep 10
     set +x
+    sleep 10
   done
   nsec=`seq 60 360|$mysort -R |head -n 1`
   echo waiting $nsec seconds till next post...
