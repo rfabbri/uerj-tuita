@@ -11,6 +11,9 @@
 # prepend the tags with /follow
 # pass to oysttyer
 
+# usuarios blacklisted
+blacklist="flamengo"
+
 for tuname in blank `cat extra-users`; do
   if [ "$tuname" = "blank" -o "$tuname" = "blank " ]; then
     tunamearg=""
@@ -18,7 +21,14 @@ for tuname in blank `cat extra-users`; do
     tunamearg="-keyf=$tuname"
   fi
   
-  grep -E -o '@[A-Za-z0-9_-]+' /tmp/bla | sed 's/@/\/follow /g' | oysttyer $tunamearg
+  if [ "$tuname" = "FDMouraNeto" ]; then
+    blacklist="$blacklist
+    patriciassis"
+  fi
+
+  set -x
+  grep -E -o '@[A-Za-z0-9_-]+' | sed 's/@/\/follow /g' | grep -v $blacklist| oysttyer $tunamearg
+  set +x
 done
 
 
