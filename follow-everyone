@@ -12,9 +12,9 @@
 # pass to oysttyer
 
 # usuarios blacklisted
-blacklist="flamengo"
+blacklist_ini="flamengo"
 
-for tuname in blank `cat extra-users`; do
+for tuname in `cat extra-users` blank; do
   if [ "$tuname" = "blank" -o "$tuname" = "blank " ]; then
     tunamearg=""
   else
@@ -22,12 +22,14 @@ for tuname in blank `cat extra-users`; do
   fi
   
   if [ "$tuname" = "FDMouraNeto" ]; then
-    blacklist="$blacklist
+    blacklist="$blacklist_ini
     patriciassis"
+  else
+    blacklist="$blacklist_ini"
   fi
 
   set -x
-  grep -E -o '@[A-Za-z0-9_-]+' | sed 's/@/\/follow /g' | grep -v $blacklist| oysttyer $tunamearg
+  grep -E -o '@[A-Za-z0-9_-]+' uerj-related-users | sed 's/@/\/follow /g' | grep -v $blacklist| oysttyer $tunamearg
   set +x
 done
 
