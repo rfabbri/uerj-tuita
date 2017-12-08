@@ -35,7 +35,7 @@ do
     msg_extra_tags="$msg $extra_tag"
     msgsize=`echo $msg_extra_tags|wc -c`
     echo message size: $msgsize
-    if [ "$msgsize" -lt 280 ]; then
+    if [ "$msgsize" -lt 139 ]; then
       msg=$msg_extra_tags
     fi
     set -x
