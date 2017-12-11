@@ -21,16 +21,14 @@ for tuname in `cat extra-users*` blank; do
     tunamearg="-keyf=$tuname"
   fi
   
-  if [ "$tuname" = "FDMouraNeto" ]; then
+  if [ "$tuname" = "FDMouraNeto" -o "$tuname" = "fdmouraneto1"]; then
     blacklist="$blacklist_ini
     patriciassis"
   else
     blacklist="$blacklist_ini"
   fi
 
-  set -x
-  grep -E -o '@[A-Za-z0-9_-]+' /tmp/bla | sed 's/@/\/follow /g' | grep -v $blacklist| oysttyer $tunamearg &
-  set +x
+  grep -E -o '@[A-Za-z0-9_-]+' /tmp/bla | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
 done
 
 

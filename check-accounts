@@ -1,0 +1,18 @@
+#!/bin/sh
+
+
+
+for tuname in blank `cat extra-users*`; do
+    if [ "$tuname" = "blank" -o "$tuname" = "blank " ]; then
+      tunamearg=""
+    else
+      tunamearg="-keyf=$tuname"
+    fi
+
+    echo user: $tunamearg
+    if echo '/quit' | ./oysttyer $tunamearg -script ; then
+      echo status:		OK
+    else
+      echo status:	  OFF
+    fi
+done
