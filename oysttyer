@@ -5647,7 +5647,7 @@ sub foruuser {
 		$interactive, $basef);
 	print $stdout "-- ok, you have $verb following user $uname.\n"
 		if ($interactive && !$en);
-	sleep 1;
+	sleep 2;
 	return 0;
 }
 
