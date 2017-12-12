@@ -29,7 +29,7 @@ for tuname in `cat extra-users*` blank; do
   fi
 
   #grep -E -o '@[A-Za-z0-9_-]+' uerj-related-users | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
-  echo @uerj2000 | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
+  echo @douglasmseng| sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
 done
 
 
