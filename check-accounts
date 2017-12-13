@@ -9,10 +9,10 @@ for tuname in blank `cat extra-users*`; do
       tunamearg="-keyf=$tuname"
     fi
 
-    echo user: $tunamearg
+    msg="user: $tuname"
     if echo '/quit' | ./oysttyer $tunamearg -script ; then
-      echo status:		OK
+      echo "$msg status: OK"
     else
-      echo status:	  OFF
+      echo "$msg status: BAD"
     fi
 done
