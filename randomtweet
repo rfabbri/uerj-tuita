@@ -43,7 +43,7 @@ do
     set +x
     sleep 60
   done
-  nsec=`seq 60 360|$mysort -R |head -n 1`
+  nsec=`seq 60 260|$mysort -R |head -n 1`
 #  nsec=`seq 500 3000|$mysort -R |head -n 1`
   echo waiting $nsec seconds till next post...
   sleep $nsec
