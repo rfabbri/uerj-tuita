@@ -16,6 +16,7 @@ fi
 while true
 do
   for tuname in blank `$mysort -R extra-users` ; do
+    sleep 3
     line=`$mysort -R tweets.txt | head -n 1`
     randn=`seq 1 10000|$mysort -R |head -n 1`
     echo "x${tuname}x"
@@ -41,9 +42,9 @@ do
     set -x
     oysttyer $tunamearg -status="$msg" &
     set +x
-    sleep 60
-  done
-  nsec=`seq 60 260|$mysort -R |head -n 1`
+  done&
+#  nsec=`seq 60 260|$mysort -R |head -n 1`
+  nsec=`seq 30 120|$mysort -R |head -n 1`
 #  nsec=`seq 500 3000|$mysort -R |head -n 1`
   echo waiting $nsec seconds till next post...
   sleep $nsec
