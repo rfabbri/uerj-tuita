@@ -28,8 +28,8 @@ for tuname in `cat extra-users*` blank; do
     blacklist="$blacklist_ini"
   fi
 
-  grep -E -o '@[A-Za-z0-9_-]+' uerj-related-users | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg &
-  #echo @UERJcampanha| sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
+#  grep -E -o '@[A-Za-z0-9_-]+' uerj-related-users | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg &
+  echo @UERJrevive | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
 done
 
 

@@ -1,5 +1,24 @@
 #!/bin/sh
 
+myusage () { 
+  echo "Usage: $0 [options]" 1>&2; 
+  echo "[options]: refer to the source file" 1>&2; 
+}
+
+arg="$1"
+myverbose=0
+case $arg in
+    --verbose|-V|-v)
+      myverbose=1
+      ;;
+    --help|-h) 
+      myusage
+      exit 0
+      ;;
+    *)
+      myusage
+      exit 0;
+esac
 
 
 for tuname in blank `cat extra-users*`; do
@@ -9,11 +28,21 @@ for tuname in blank `cat extra-users*`; do
       tunamearg="-keyf=$tuname"
     fi
 
-    echo ==============
+    if [ "$myverbose" = 1 ]; then
+      echo
+      echo ======================================================================
+    fi
+
     msg="user: $tuname"
-    if echo '/quit' | ./oysttyer $tunamearg ; then
+    if echo '/quit' | ./oysttyer $tunamearg -script; then
       echo "$msg status: OK"
     else
       echo "$msg status: BAD"
+      if [ "$myverbose" = 1 ]; then
+        if [ -e contas-info ]; then
+          echo info: `grep $tuname contas-info`
+        fi
+        echo '/quit' | ./oysttyer $tunamearg
+      fi
     fi
 done

@@ -47,7 +47,7 @@ do
 #  nsec=`seq 30 120|$mysort -R |head -n 1`
 #  nsec=`seq 500 3000|$mysort -R |head -n 1`
   #nsec=`seq 28800 86400 |$mysort -R |head -n 1`
-  nsec=`seq 3600 8000|$mysort -R |head -n 1`
+  nsec=`seq 5000 8000|$mysort -R |head -n 1`
   echo waiting $nsec seconds till next post...
   sleep $nsec
 done # &
