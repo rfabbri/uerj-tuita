@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Basic logic:
 # for user2follow in uerj-related-users
@@ -14,7 +14,8 @@
 # usuarios blacklisted
 blacklist_ini="flamengo"
 
-for tuname in `cat extra-users*` blank; do
+#for tuname in `cat extra-users*` blank; do
+for tuname in `cat followers` blank; do
   if [ "$tuname" = "blank" -o "$tuname" = "blank " ]; then
     tunamearg=""
   else
@@ -28,8 +29,9 @@ for tuname in `cat extra-users*` blank; do
     blacklist="$blacklist_ini"
   fi
 
-#  grep -E -o '@[A-Za-z0-9_-]+' uerj-related-users | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg &
-  echo @UERJrevolution | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
+
+  # grep -E -o '@[A-Za-z0-9_-]+' uerj-related-users | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg | sed "s/^/$tuname:::: /g" &
+  echo @UERJativa | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
 done
 
 
