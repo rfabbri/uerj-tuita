@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -e ~/.oysttyerkey$1 ]; then
+  ./oysttyer -keyf=$1 -oauthwizard
+else
+  echo ERROR: the key $1 does not exist, why re-auth?
+fi

@@ -1,0 +1,2 @@
+#!/bin/sh
+./oysttyer -keyf=$1 -oauthwizard
