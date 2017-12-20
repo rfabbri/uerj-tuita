@@ -13,6 +13,11 @@ if hash gsort 2>/dev/null; then
   mysort=gsort
 fi
 
+tweetsfile="tweet_queue.tmp"
+if [ ! -f $tweetsfile ]; then
+  tweetsfile=`$mysort -R tweets.txt | head -n 1`
+fi
+
 while true
 do
   for tuname in `$mysort -R extra-users` ; do
