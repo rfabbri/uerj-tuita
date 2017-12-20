@@ -15,8 +15,8 @@ fi
 
 while true
 do
-  for tuname in blank `$mysort -R extra-users` ; do
-    sleep 30
+  for tuname in `$mysort -R extra-users` ; do
+    sleep `seq 10 30`
     line=`$mysort -R tweets.txt | head -n 1`
     randn=`seq 1 10000|$mysort -R |head -n 1`
     echo "x${tuname}x"
@@ -31,7 +31,7 @@ do
     echo ORIG $line
     echo RNDO $msg
     
-    msg="$msg #IPRJ$randn"
+    msg="$msg Cedae$randn"
     extra_tag=`$mysort -R extra-tags | head -n 1`
     msg_extra_tags="$msg $extra_tag"
     msgsize=`echo $msg_extra_tags|wc -c`
@@ -44,10 +44,10 @@ do
     set +x
   done
 #  nsec=`seq 60 260|$mysort -R |head -n 1`
-#  nsec=`seq 30 120|$mysort -R |head -n 1`
+  nsec=`seq 30 500|$mysort -R |head -n 1`
 #  nsec=`seq 500 3000|$mysort -R |head -n 1`
   #nsec=`seq 28800 86400 |$mysort -R |head -n 1`
-  nsec=`seq 5000 8000|$mysort -R |head -n 1`
+#  nsec=`seq 5000 8000|$mysort -R |head -n 1`
   echo waiting $nsec seconds till next post...
   sleep $nsec
 done # &
@@ -55,7 +55,8 @@ done # &
 # Todo: make as function
 while true
 do
-  for tuname in `$mysort -R extra-users-3600` ; do
+  for tuname in blank `$mysort -R extra-users-3600` ; do
+    sleep `seq 10 30`
     line=`$mysort -R tweets.txt | head -n 1`
     randn=`seq 1 10000|$mysort -R |head -n 1`
     echo "x${tuname}x"
@@ -81,10 +82,9 @@ do
     set -x
     oysttyer $tunamearg -status="$msg" &
     set +x
-    sleep 60
   done
 #  nsec=`seq 60 360|$mysort -R |head -n 1`
-  nsec=`seq 10000 20000 |$mysort -R |head -n 1`
+  nsec=`seq 500 3600|$mysort -R |head -n 1`
   echo waiting $nsec seconds till next post...
   sleep $nsec
 done &
