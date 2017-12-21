@@ -31,7 +31,7 @@ for tuname in `cat followers` blank; do
 
 
   # grep -E -o '@[A-Za-z0-9_-]+' uerj-related-users | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg | sed "s/^/$tuname:::: /g" &
-  echo @UERJativa | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
+  echo @UERJdivulga | sed 's/@/\/follow /g' | grep -v $blacklist| ./oysttyer $tunamearg 
 done
 
 
